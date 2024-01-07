@@ -1,0 +1,51 @@
+.div3 {
+    grid-area: 1 / 2 / 6 / 5;
+    height: auto;
+    background-color: rgba(139, 239, 172, 0.296);  /* 設定背景色 */
+    padding: 30px; /* 多一點的內邊距 */
+    text-align: center;
+
+    /* 字體樣式 */
+    font-family: 'Arial', sans-serif;
+    font-size: 28px; /* 略微增大字體 */
+    line-height: 1.6; /* 提高行高 */
+
+    /* 邊框和陰影效果 */
+    border-radius: 15px; /* 圓角一點 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* 更加少女風的字體顏色 */
+    color:  rgb(214, 98, 144) ;
+}
+/* 美化連結 */
+
+
+.div3 a {
+    color:  rgb(45, 117, 69);
+    text-decoration: none; /* 去掉底線 */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.div3 a:hover {
+    color: #d81b60; /* 深粉紅色字體 */
+}
+
+/* 加入淡入淡出效果 */
+.div3 a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff69b4; /* 底線的粉紅色 */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.div3 a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}

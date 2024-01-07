@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Switch</title>
+            <style>
+        .progress-bar {
+            /* Colors */
+            background-color: #d1d5db;
+
+            /* Rounded border */
+            border-radius: 9999px;
+            padding: 0.25rem;
+        }
+
+        .progress-bar__progress {
+            /* Center the content */
+            align-items: center;
+            display: flex;
+            justify-content: center;
+
+            /* Colors */
+            background-color: #3b82f6;
+            color: #fff;
+
+            /* Rounded border */
+            border-radius: 9999px;
+        }
+        /* ==================================== */
+        .slider {
+            /* Content is centered horizontally */
+            align-items: center;
+            display: flex;
+
+            /* Size */
+            height: 2rem;
+        }
+
+        .slider__left {
+            height: 2px;
+
+            /* Colors */
+            background-color: #d1d5db;
+        }
+
+        .slider__circle {
+            /* Size */
+            height: 2rem;
+            width: 2rem;
+
+            /* Rounded border */
+            border-radius: 100px;
+
+            /* Colors */
+            background-color: #3b82f6;
+        }
+
+        .slider__right {
+            /* Take the remaining width */
+            flex: 1;
+            height: 2px;
+
+            /* Colors */
+            background-color: #d1d5db;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="progress-bar">
+        <!-- Width based on the number of percentages -->
+        <div class="progress-bar__progress" id="progressBar" style="width: 50%;">
+            <!-- The number of percentages -->
+            50%
+        </div>
+    </div>
+
+    <div class="slider" id="slider">
+        <!-- Left side -->
+        <!-- Width based on the current value -->
+        <div class="slider__left" id="sliderLeft" style="width: 50%"></div>
+    
+        <!-- Circle -->
+        <div class="slider__circle" id="sliderCircle"></div>
+    
+        <!-- Right side -->
+        <div class="slider__right" id="sliderRight"></div>
+    </div>
+     
+    <script>
+        // Get elements
+        const slider = document.getElementById('slider');
+        const sliderLeft = document.getElementById('sliderLeft');
+        const sliderCircle = document.getElementById('sliderCircle');
+        const sliderRight = document.getElementById('sliderRight');
+
+        // Add event listener to the slider
+        slider.addEventListener('mousemove', handleMouseMove);
+        slider.addEventListener('mouseup', handleMouseUp);
+    
+        // Flag to check if dragging
+        let isDragging = false;
+    
+        // Handle mouse down
+        sliderCircle.addEventListener('mousedown', (event) => {
+            event.preventDefault(); // Prevent text selection during drag
+            isDragging = true;
+        });
+    
+        // Handle mouse up
+        function handleMouseUp() {
+            isDragging = false;
+        }
+        function handleMouseMove(event) {
+          if (isDragging) {
+              const sliderRect = slider.getBoundingClientRect();
+              const percentage = (event.clientX - sliderRect.left) / sliderRect.width * 100;
+      
+              // 將百分比限制在 0% 和 100% 之間
+              const clampedPercentage = Math.max(0, Math.min(100, percentage));
+      
+              // 更新樣式
+              sliderLeft.style.width = clampedPercentage + '%';
+              sliderCircle.style.left = clampedPercentage + '%';
+              sliderRight.style.width = 100 - clampedPercentage + '%';
+      
+              // 更新進度條
+              progressBar.style.width = clampedPercentage + '%';
+              progressBar.textContent = Math.round(clampedPercentage) + '%';
+      
+              // 根據百分比改變背景色
+              const backgroundColor = `rgb(${clampedPercentage}%, ${clampedPercentage}%, ${clampedPercentage}%)`;
+              document.body.style.backgroundColor = backgroundColor;
+          }
+      }
+    </script>
+
+
+  
+</body>
+</html>

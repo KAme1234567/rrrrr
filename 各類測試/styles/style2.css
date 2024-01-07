@@ -1,0 +1,139 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+
+.grid {  /* 網格背景     */
+     height: 16rem;
+    background-image: radial-gradient(circle, rgb(203 213 225) 2px, #fff 2px);
+    background-size: 2.5rem 2.5rem;
+    background-position: center center;
+}
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 6; }
+.switch {
+    display: flex;
+    border-radius: 9999px;
+    height: 2rem;
+    width: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.switch__input {
+    display: none;
+}
+
+.switch__circle {
+    border-radius: 9999px;
+    width: 2rem;
+    background-color: #fff;
+}
+
+.switch--on {
+    background-color: #357edd;
+    border: 1px solid #357edd;
+    justify-content: flex-end;
+}
+
+.switch--off {
+    background-color: #d1d5db;
+    border: 1px solid #d1d5db;
+}
+
+.switch--off .switch__circle {
+    border: 1px solid #d1d5db;
+}
+
+.slider {
+    /* Content is centered horizontally */
+    align-items: center;
+    display: flex;
+
+    /* Size */
+    height: 2rem;
+}
+
+.slider__left {
+    height: 2px;
+
+    /* Colors */
+    background-color: #d1d5db;
+}
+
+.slider__circle {
+    /* Size */
+    height: 2rem;
+    width: 2rem;
+
+    /* Rounded border */
+    border-radius: 9999px;
+
+    /* Colors */
+    background-color: #3b82f6;
+}
+
+.slider__right {
+    /* Take the remaining width */
+    flex: 1;
+    height: 2px;
+
+    /* Colors */
+    background-color: #d1d5db;
+}
+
+
+ /* 黏性標題欄    */
+.sticky-header__header {
+  
+    position: sticky;
+    top: 0;
+
+    background-color: rgb(62, 167, 97); /* 背景色 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+    padding: 10px; /* 添加一些內邊距 */
+
+    
+}
+
+.sticky-table-headers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* 讓整個按鈕區域高度與標題欄相同 */
+}
+
+.sticky-table-headers__sticky {
+    /* Background color */
+    background-color: #9ca3af;
+
+    /* Stick to the left */
+    left: 0;
+    position: sticky;
+
+    /* Displayed on top of other rows when scrolling */
+    z-index: 9999;
+}
+.sticky-table-headers th {
+    padding: 0px; /* 添加一些內邊距 */
+}
+
+.sticky-table-headers button {
+    background-color: rgb(62, 167, 97);/* 按鈕背景色 */
+    color: #fff; /* 字體顏色 */
+    border: none; /* 去除邊框 */
+    padding: 8px 75px; /* 調整內邊距，使按鈕高度不變，水平方向擴展至 100% */
+    border-radius: 4px; /* 圓角 */
+    cursor: pointer; /* 添加指針樣式 */
+    transition: background-color 0.3s ease; /* 添加過渡效果 */
+    width: 100%; /* 讓按鈕擴展到 100% 的寬度 */
+    font-size: 150%; /* 設定字體大小為相對於按鈕高度的百分比 */
+}
+
+
+.sticky-table-headers button:hover {
+    background-color:rgb(45, 118, 69); /* 按鈕背景色在懸停時的變化 */
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Switch</title>
+    <style>
+        .switch {
+            display: flex;
+            border-radius: 9999px;
+            height: 2rem;
+            width: 4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .switch__input {
+            display: none;
+        }
+
+        .switch__circle {
+            border-radius: 9999px;
+            width: 2rem;
+            background-color: #fff;
+        }
+
+        .switch--on {
+            background-color: #357edd;
+            border: 1px solid #357edd;
+            justify-content: flex-end;
+        }
+
+        .switch--off {
+            background-color: #d1d5db;
+            border: 1px solid #d1d5db;
+        }
+
+        .switch--off .switch__circle {
+            border: 1px solid #d1d5db;
+        }
+    </style>
+</head>
+<body>
+    <body>
+      <label class="switch switch--off">
+          <input type="checkbox" class="switch__input" onchange="toggleColorSwitch(this)" />
+  
+          <!-- Circle -->
+          <div class="switch__circle"></div>
+      </label>
+  
+      <label class="switch switch--off">
+          <input type="checkbox" class="switch__input" onchange="toggleFontSizeSwitch(this)" />
+  
+          <!-- Circle -->
+          <div class="switch__circle"></div>
+      </label>
+  
+      <script>
+ 
+      </script>
+  </body>
+  
+</body>
+</html>
